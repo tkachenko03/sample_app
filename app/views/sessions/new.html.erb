@@ -9,7 +9,7 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :пароль %>
+      <%= f.label :password, "Пароль" %>
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
@@ -20,6 +20,6 @@
       <%= f.submit "Войти", class: "btn btn-primary" %>
     <% end %>
 
-    <p>У Вас еще нет учетной записи? <%= link_to "Зарегистрироваться!", signup_path %></p>
+    <p>У Вас еще нет учетной записи? <%= link_to "Зарегистрироваться", signup_path %></p>
   </div>
 </div>
