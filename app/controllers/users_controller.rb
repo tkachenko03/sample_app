@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Добро пожаловать в Приложение-пример!"
+      flash[:success] = "Добро пожаловать в пример приложения!"
       redirect_to @user
     else
       render 'new'
@@ -26,7 +26,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      # Handle a successful update.
+      flash[:success] = "Профиль обновлен"
+      redirect_to @user
     else
       render 'edit'
     end
