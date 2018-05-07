@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
@@ -18,7 +19,7 @@ class User < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
-  end 
+  end
 
   # Returns a random token.
   def User.new_token
