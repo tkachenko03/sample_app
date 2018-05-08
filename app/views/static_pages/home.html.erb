@@ -1,15 +1,30 @@
 <% provide(:title, "Главная") %>
-<div class="center jumbotron">
-  <h1>Главная</h1>
 
-  <h2>
-    Это домашняя страница примера приложения по учебнику
-    <a href="http://www.railstutorial.org/">Ruby on Rails </a>
-    .
-  </h2>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
 
-  <%= link_to "Регистрация", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+  <div class="center jumbotron">
+    <h1>Главная</h1>
 
-<%= link_to image_tag("rails.png", alt: "Логотип Rails"),
-            'http://rubyonrails.org/' %>
+    <h2>
+      Это домашняя страница примера приложения по учебнику
+      <a href="http://www.railstutorial.org/">Ruby on Rails </a>
+      .
+    </h2>
+
+    <%= link_to "Регистрация", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <%= link_to image_tag("rails.png", alt: "Логотип Rails"),
+              'http://rubyonrails.org/' %>
+<% end %>
